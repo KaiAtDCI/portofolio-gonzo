@@ -19,6 +19,8 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.6.0",
+    "jsdom": "^16.5.1"
   },
   "devDependencies": {
     "gh-pages": "latest",

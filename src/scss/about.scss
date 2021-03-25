@@ -1,0 +1,24 @@
+#page {
+  // !!! Do NOT change display type !!!
+}
+
+#page-item-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  //background-color: yellow;
+}
+
+#container {
+  background-color: rgba(0,0,100,0.3);
+}
+
+.container-item {
+  font-size: 1.5em;
+  text-align: center;
+  align-self: center;
+  padding: 0.5em;
+  //background-color: blue;
+}

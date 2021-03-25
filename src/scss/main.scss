@@ -1,2 +1,148 @@
-// This is where you can import other stylesheets or write your scss code
-@import "../../node_modules/bootstrap/scss/bootstrap";
+$header-height: 5vh;
+$footer-height: 5vh;
+$page-item-height: 1rem;
+$grid-gap: .25rem;
+$color-gray-transparent-05: none;
+//$color-gray-transparent-05: rgba(0,0,0,0.5);
+
+// fades
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+// fly-ins
+
+@keyframes fly-in-from-right  {
+  0% { transform: translate(+100vw, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fly-in-from-left  {
+  0% { transform: translate(-100vw, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fly-in-from-top  {
+  0% { transform: translate(0, -100vh); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fly-in-from-bottom  {
+  0% { transform: translate(0, +100vh); }
+  100% { transform: translate(0, 0); }
+}
+
+
+// element styles
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  //background-color: black;
+  background-image: url('../images/eclipse.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  //animation: fly-in-from-right reverse 1000ms forwards;
+}
+
+#page {
+  display: grid;
+  width: 95%;
+  height: 95%;
+  grid-template-columns: $page-item-height $page-item-height 10fr $page-item-height $page-item-height;
+  grid-template-rows: $page-item-height $page-item-height 10fr $page-item-height $page-item-height;
+  grid-gap: $grid-gap;
+}
+
+#page-item-content {
+  grid-column: 3 / span 1;
+  grid-row: 3 / span 1;
+  background-color: $color-gray-transparent-05;
+}
+
+#page-item-up-text {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-up-arrow {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-down-text {
+  grid-column: 3 / span 1;
+  grid-row: 5 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-down-arrow {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-left-text {
+  grid-column: 1 / span 1;
+  grid-row: 3 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+  transform:rotate(180deg);
+}
+
+#page-item-left-arrow {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+}
+
+#page-item-right-text {
+  grid-column: 5 / span 1;
+  grid-row: 3 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+}
+
+#page-item-right-arrow {
+  grid-column: 4 / span 1;
+  grid-row: 3 / span 1;
+  background-color: $color-gray-transparent-05;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+}
+
+
