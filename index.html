@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portofolio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body onload="initPage()">
+    <div id="page">
+      <!-- external html content loaded via script -->
+    </div>
+  </body>
+
+  <script>
+    const navFadeInterval = 1500;
+    const pageFlyInterval = 1500;
+
+    const initPage = function() {
+      // console.log('initPage()');
+      $("#page").load("external-html/about.html");
+    }
+
+    const linkToPage = function(href, direction) {
+      console.log('linkToPage:' + href);
+      console.log('direction:' + direction);
+
+      let flyOutAnimationPropertyValue = null;
+      let flyInAnimationPropertyValue = null;
+      switch (direction) {
+        case 'up':
+          // console.log('up');
+          flyOutAnimationPropertyValue = 'fly-in-from-top 1000ms reverse backwards';
+          flyInAnimationPropertyValue = 'fly-in-from-bottom 1000ms forwards';
+          break;
+        case 'down':
+          // console.log('down');
+          flyOutAnimationPropertyValue = 'fly-in-from-bottom 1000ms reverse backwards';
+          flyInAnimationPropertyValue = 'fly-in-from-top 1000ms forwards';
+          break;
+        case 'left':
+          // console.log('left');
+          flyOutAnimationPropertyValue = 'fly-in-from-left 1000ms reverse backwards';
+          flyInAnimationPropertyValue = 'fly-in-from-left 1000ms forwards';
+          break;
+        case 'right':
+          // console.log('right');
+          flyOutAnimationPropertyValue = 'fly-in-from-right 1000ms reverse  backwards';
+          flyInAnimationPropertyValue = 'fly-in-from-right 1000ms forwards';
+          break;
+        default:
+          console.log('index.html: switch(direction) - default !!!!!!!!!!!!!!!!');
+          break;
+      }
+
+      fadeOutNavs()
+      setTimeout(function() {
+        flyOutPage(flyOutAnimationPropertyValue);
+        setTimeout(function() {
+          $("#page").load(href);
+          $('nav').hide();  // ToDo: nav hide does not work -> wait onLoad !
+          setTimeout(function() {
+            flyInPage(flyInAnimationPropertyValue);
+            setTimeout(function() {
+              // console.log('fadeInNavs'); // Todo: Implement fadeInNavs
+            }, navFadeInterval);
+          }, 10);
+        }, 1000);
+      }, 1000);
+    };
+
+    const fadeOutNavs = function() {
+      // console.log('fadeOutNavs');
+      $('nav').css('animation', 'fade-in 1000ms reverse forwards');
+    }
+
+    const fadeInNavs = function() {
+      // console.log('fadeInNavs');
+      $('nav').css('animation', 'fade-in 1000ms forwards');
+    }
+
+    const flyOutPage = function(flyOutAnimationPropertyValue) {
+      console.log('flyOutPage, flyOutAnimationPropertyValue:' + flyOutAnimationPropertyValue);
+      $('#page-item-content').css('animation', flyOutAnimationPropertyValue);
+    }
+
+    const flyInPage = function(flyInAnimationPropertyValue) {
+      console.log('flyInPage, flyInAnimationPropertyValue:' + flyInAnimationPropertyValue);
+      $('#page-item-content').css('animation', flyInAnimationPropertyValue);
+    }
+
+  </script>
+</html>

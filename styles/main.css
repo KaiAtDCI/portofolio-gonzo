@@ -1,0 +1,151 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fly-in-from-right {
+  0% {
+    transform: translate(100vw, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes fly-in-from-left {
+  0% {
+    transform: translate(-100vw, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes fly-in-from-top {
+  0% {
+    transform: translate(0, -100vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes fly-in-from-bottom {
+  0% {
+    transform: translate(0, 100vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("../images/eclipse.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+#page {
+  display: grid;
+  width: 95%;
+  height: 95%;
+  grid-template-columns: 1rem 1rem 10fr 1rem 1rem;
+  grid-template-rows: 1rem 1rem 10fr 1rem 1rem;
+  grid-gap: 0.25rem;
+}
+
+#page-item-content {
+  grid-column: 3/span 1;
+  grid-row: 3/span 1;
+  background-color: none;
+}
+
+#page-item-up-text {
+  grid-column: 3/span 1;
+  grid-row: 1/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-up-arrow {
+  grid-column: 3/span 1;
+  grid-row: 2/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-down-text {
+  grid-column: 3/span 1;
+  grid-row: 5/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-down-arrow {
+  grid-column: 3/span 1;
+  grid-row: 4/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+}
+
+#page-item-left-text {
+  grid-column: 1/span 1;
+  grid-row: 3/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+#page-item-left-arrow {
+  grid-column: 2/span 1;
+  grid-row: 3/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+}
+
+#page-item-right-text {
+  grid-column: 5/span 1;
+  grid-row: 3/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+}
+
+#page-item-right-arrow {
+  grid-column: 4/span 1;
+  grid-row: 3/span 1;
+  background-color: none;
+  justify-self: center;
+  align-self: center;
+  writing-mode: vertical-rl;
+}
+
+/*# sourceMappingURL=main.css.map */
