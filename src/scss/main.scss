@@ -30,7 +30,8 @@ $color-gray-transparent-05: none;
 }
 
 @keyframes fly-in-from-top  {
-  0% { transform: translate(0, -100vh); }
+  0% { transform: translate(0, -20vh); }
+  //0% { transform: translate(0, -100vh); }
   100% { transform: translate(0, 0); }
 }
 
