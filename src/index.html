@@ -1,80 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Portofolio</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/main.css" />
    </head>
 
-  <body onload="initPage()">
-    <div id="page">
-      <!-- external html content loaded via script -->
-    </div>
+  <body onload="console.log('index.html: body.onload()')">
+    <input type="button"
+           value="Trigger"
+           onClick="animateElementsByClassName('class1', 'fade-out 1s')">
+<!--           onClick="animateBody('fade-out 3s forwards');">-->
+    <input type="button"
+           value="Link to 'about.html'"
+           onClick="showBody()">
+
+    <div id="div1" class="class1">id=div1, class=class1</div>
+    <div id="div2" class="class1">id=div2, class=class1</div>
+    <div id="div3" class="class2">id=div3, class=class2</div>
+    <div id="div4" class="class2">id=div4, class=class2</div>
+
   </body>
 
+  <script type="text/javascript" src="scripts/scriptLoader.js"></script>
   <script>
-    const navigationAnimationInterval = 1500;
-    const pageAnimationInterval = 1500;
-
-
-    function initPage() {
-      // console.log('initPage()');
-      substitutePage("external-html/about.html");
-    }
-
-    function substitutePage(href) {
-      $("#page").load(href);
-    }
-
-    function hidePage() {
-      $('#page').hide();
-    }
-
-    function showPage() {
-      $('#page').show();
-    }
-
-
-
-    function linkToPage(href, pageOutAnimation, pageInAnimation, navOutAnimation, navInAnimation) {
-      console.log('linkToPage:' + href);
-      console.log('pageOutAnimation' + pageOutAnimation);
-      console.log('pageInAnimation' + pageInAnimation);
-
-      startTaskChain()
-              .then(() => fadeNavigation(navOutAnimation), navigationAnimationInterval)
-              .then(delayedTask(() => fadePage(pageOutAnimation), pageAnimationInterval))
-              .then(delayedTask(() => {
-                substitutePage("external-html/contact.html");
-                hidePage();
-              }, pageAnimationInterval))
-    }
-
-    function startTaskChain() {
-      return new Promise ((resolve) => resolve())
-    }
-
-    function delayedTask(task, ms) {
-      return function() {
-        return new Promise(resolve => setTimeout(() => {
-          task();
-          resolve();
-        }, ms));
-      };
-    }
-
-    function fadeNavigation (animationPropertyValue) {
-      // console.log('fadeInNavs');
-      $('nav').css('animation', animationPropertyValue);
-    }
-
-    function fadePage(animationPropertyValue) {
-      console.log('slide(), animationPropertyValue:' + animationPropertyValue);
-      $('#page-item-content').css('animation', animationPropertyValue);
-    }
-
+    scriptLoader("scripts/controller.js");
   </script>
+
 </html>

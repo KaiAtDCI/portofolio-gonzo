@@ -1,12 +1,12 @@
-@keyframes fade-in {
+@keyframes fade-out {
   0% {
-    opacity: 0;
-  }
-  100% {
     opacity: 1;
   }
+  100% {
+    opacity: 0;
+  }
 }
-@keyframes fade-out {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
@@ -58,10 +58,6 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-image: url("../images/eclipse.jpg");
-  background-size: cover;
-  background-position: center;
-  color: white;
 }
 
 #page {
