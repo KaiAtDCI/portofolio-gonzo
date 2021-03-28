@@ -25,6 +25,12 @@
       substitutePage("external-html/about.html");
     }
 
+    function delayedLinkToPage(href, interval) {
+      $("#page").load(href);
+      // setTimeout({}, 1000)
+    }
+
+
     function substitutePage(href) {
       $("#page").load(href);
     }
